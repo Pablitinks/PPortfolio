@@ -148,8 +148,34 @@ function animate() {
 animate();
 
 
-// Preview apenas em desktop (não em mobile/tablet)
-if (window.innerWidth > 1024) {
+// Detectar se é dispositivo móvel
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                 'ontouchstart' in window || 
+                 navigator.maxTouchPoints > 0;
+
+// Forçar ocultar preview em dispositivos móveis
+if (isMobile) {
+    const allPreviews = document.querySelectorAll('.project-preview');
+    allPreviews.forEach(preview => {
+        preview.style.display = 'none';
+        preview.style.opacity = '0';
+        preview.style.visibility = 'hidden';
+    });
+    
+    // Monitorar constantemente e forçar fechar se abrir
+    setInterval(() => {
+        allPreviews.forEach(preview => {
+            if (preview.style.display !== 'none' || 
+                preview.style.opacity !== '0' || 
+                preview.style.visibility !== 'hidden') {
+                preview.style.display = 'none';
+                preview.style.opacity = '0';
+                preview.style.visibility = 'hidden';
+            }
+        });
+    }, 100);
+} else {
+    // Preview apenas em desktop
     const projectLinks = document.querySelectorAll('.project-link');
 
     projectLinks.forEach(link => {
