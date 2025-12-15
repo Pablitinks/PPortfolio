@@ -252,7 +252,7 @@ body {
     overflow: hidden;
 }
 
-.project-link:hover .project-preview {
+.project-link:hover ~ .project-preview {
     opacity: 1;
     visibility: visible;
 }
