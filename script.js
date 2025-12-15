@@ -148,25 +148,28 @@ function animate() {
 animate();
 
 
-const projectLinks = document.querySelectorAll('.project-link');
+// Preview apenas em desktop (não em mobile/tablet)
+if (window.innerWidth > 1024) {
+    const projectLinks = document.querySelectorAll('.project-link');
 
-projectLinks.forEach(link => {
-    const preview = link.parentElement.querySelector('.project-preview');
-    
-    if (preview) {
-        link.addEventListener('mouseenter', () => {
-            preview.style.opacity = '1';
-            preview.style.visibility = 'visible';
-        });
+    projectLinks.forEach(link => {
+        const preview = link.parentElement.querySelector('.project-preview');
         
-        link.addEventListener('mouseleave', () => {
-            preview.style.opacity = '0';
-            preview.style.visibility = 'hidden';
-        });
-        
-        link.addEventListener('click', (e) => {
-            preview.style.opacity = '0';
-            preview.style.visibility = 'hidden';
-        });
-    }
-});
+        if (preview) {
+            link.addEventListener('mouseenter', () => {
+                preview.style.opacity = '1';
+                preview.style.visibility = 'visible';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                preview.style.opacity = '0';
+                preview.style.visibility = 'hidden';
+            });
+            
+            link.addEventListener('click', (e) => {
+                preview.style.opacity = '0';
+                preview.style.visibility = 'hidden';
+            });
+        }
+    });
+}

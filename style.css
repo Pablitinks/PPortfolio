@@ -383,6 +383,13 @@ body {
     .project-title {
         font-size: clamp(35px, 5vw, 60px);
     }
+
+    /* Desativar preview completamente em mobile/tablet */
+    .project-preview {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
 }
 
 @media (max-width: 768px) {
