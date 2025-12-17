@@ -96,6 +96,19 @@ body {
     margin-bottom: 0.3vw;
     color: #ffffff;
     line-height: 1.1;
+    position: relative;
+    display: inline-block;
+}
+
+.logo::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    opacity: 1;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .tagline {
@@ -137,10 +150,119 @@ body {
     opacity: 1;
 }
 
+.theme-toggle {
+    margin-top: 30px;
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+.theme-toggle:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.theme-icon {
+    font-size: 1.5vw;
+}
+
 .sidebar-footer {
     margin-top: auto;
     font-size: 12px;
     color: #666666;
+}
+
+/* Tema Claro */
+body.light-theme {
+    background: #f5f5f5;
+    color: #000000;
+}
+
+body.light-theme .page-wrapper {
+    border-color: #000000;
+}
+
+body.light-theme .logo,
+body.light-theme .nav-item,
+body.light-theme .project-title,
+body.light-theme .intro-text p {
+    color: #000000;
+}
+
+body.light-theme .tagline,
+body.light-theme .project-meta {
+    color: #666666;
+}
+
+body.light-theme .sidebar-footer {
+    color: #999999;
+}
+
+body.light-theme .project-link {
+    text-decoration-color: #000000;
+}
+
+body.light-theme .theme-toggle {
+    border-color: #000000;
+    color: #000000;
+}
+
+body.light-theme .theme-toggle:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+body.light-theme .project-preview {
+    background: #ffffff;
+    border-color: #000000;
+}
+
+body.light-theme .project-link:hover ~ .project-preview {
+    animation: borderPulsLight 2s ease-in-out infinite;
+}
+
+@keyframes borderPulsLight {
+    0%, 100% {
+        border-color: #000000;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    50% {
+        border-color: #333333;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 20px 2px rgba(0, 0, 0, 0.5);
+    }
+}
+
+body.light-theme #custom-cursor {
+    background: #000000;
+    mix-blend-mode: normal;
+}
+
+body.light-theme #trail-canvas {
+    mix-blend-mode: normal;
+}
+
+body.light-theme .section-heading {
+    color: #000000;
+}
+
+body.light-theme .contact-item a {
+    color: #000000;
+}
+
+body.light-theme .contact-item span {
+    color: #666666;
+}
+
+body.light-theme .sidebar-footer p {
+    color: #999999;
 }
 
 
@@ -235,10 +357,10 @@ body {
 
 .project-preview {
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 50vw;
+    left: 18vw;
+    top: 62%;
+    transform: translateY(-50%);
+    width: 45vw;
     max-width: 800px;
     aspect-ratio: 16 / 9;
     background: #000000;
@@ -248,13 +370,25 @@ body {
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 50;
     overflow: hidden;
 }
 
 .project-link:hover ~ .project-preview {
     opacity: 1;
     visibility: visible;
+    animation: borderPulse 2s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+    0%, 100% {
+        border-color: #ffffff;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    50% {
+        border-color: #cccccc;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 20px 2px rgba(255, 255, 255, 0.5);
+    }
 }
 
 .project-preview iframe {

@@ -1,5 +1,97 @@
 const cursor = document.getElementById('custom-cursor');
 
+// Typing animation
+const typingText = 'Pablo Felipe';
+const typingElement = document.getElementById('typing-name');
+let charIndex = 0;
+
+function typeWriter() {
+    if (charIndex < typingText.length) {
+        typingElement.textContent += typingText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 150);
+    } else {
+        // Remove cursor after typing
+        setTimeout(() => {
+            typingElement.style.removeProperty('--show-cursor');
+            const style = document.createElement('style');
+            style.textContent = '.logo::after { display: none; }';
+            document.head.appendChild(style);
+            // Start glitch animation after typing ends
+            setTimeout(startGlitchAnimation, 300);
+        }, 500);
+    }
+}
+
+// Glitch animation for tagline
+const glitchText = 'Developer & Designer';
+const glitchElement = document.getElementById('glitch-text');
+const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`αβγδεζηθικλμνξοπρστυφχψω';
+
+function startGlitchAnimation() {
+    const letters = glitchText.split('');
+    const revealed = new Array(letters.length).fill(false);
+    let iterations = 0;
+    const maxIterations = 20;
+    
+    const interval = setInterval(() => {
+        glitchElement.textContent = letters.map((letter, index) => {
+            if (revealed[index]) {
+                return letter;
+            }
+            
+            if (letter === ' ') {
+                revealed[index] = true;
+                return ' ';
+            }
+            
+            // Progressivamente revela as letras
+            if (iterations > index) {
+                revealed[index] = true;
+                return letter;
+            }
+            
+            // Mostra símbolos aleatórios
+            return symbols[Math.floor(Math.random() * symbols.length)];
+        }).join('');
+        
+        iterations++;
+        
+        if (iterations > maxIterations) {
+            glitchElement.textContent = glitchText;
+            clearInterval(interval);
+        }
+    }, 50);
+}
+
+window.addEventListener('load', () => {
+    setTimeout(typeWriter, 500);
+});
+
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.querySelector('.theme-icon');
+const body = document.body;
+
+// Verifica se há tema salvo no localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    body.classList.add('light-theme');
+    themeIcon.textContent = '🌙';
+}
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    
+    if (body.classList.contains('light-theme')) {
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+    } else {
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
 
 const canvas = document.getElementById('trail-canvas');
 const ctx = canvas.getContext('2d');
@@ -128,13 +220,17 @@ function animate() {
     
     ctx.lineTo(mouseX, mouseY);
     
+    // Detecta se o tema claro está ativo
+    const isLightTheme = body.classList.contains('light-theme');
+    const trailColor = isLightTheme ? '0, 0, 0' : '255, 255, 255';
+    
     const gradient = ctx.createLinearGradient(
         smoothed[0].x, smoothed[0].y,
         mouseX, mouseY
     );
-    gradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
-    gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.5)');
-    gradient.addColorStop(1, 'rgba(255, 255, 255, 0.9)');
+    gradient.addColorStop(0, `rgba(${trailColor}, 0)`);
+    gradient.addColorStop(0.5, `rgba(${trailColor}, 0.5)`);
+    gradient.addColorStop(1, `rgba(${trailColor}, 0.9)`);
     
     ctx.strokeStyle = gradient;
     ctx.lineWidth = 2;
