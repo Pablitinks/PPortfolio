@@ -9,6 +9,7 @@
 <body>
     <div id="custom-cursor"></div>
     <canvas id="trail-canvas"></canvas>
+    <div id="floating-symbols"></div>
     <div class="page-wrapper">
     <aside class="sidebar">
         <div class="sidebar-header">
@@ -22,9 +23,14 @@
             <a href="#contacts" class="nav-item">Contacts</a>
         </nav>
         
-        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
-            <span class="theme-icon">☀️</span>
-        </button>
+        <div class="theme-toggle-wrapper">
+            <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+            <label for="theme-toggle" class="theme-toggle-label">
+                <img src="sun-svgrepo-com (2).svg" alt="Sol" class="theme-icon sun-icon">
+                <img src="moon-stars-svgrepo-com (1).svg" alt="Lua" class="theme-icon moon-icon">
+                <span class="theme-toggle-slider"></span>
+            </label>
+        </div>
         
         <footer class="sidebar-footer">
             <p>© Pablo Felipe</p>

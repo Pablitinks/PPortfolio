@@ -70,24 +70,21 @@ window.addEventListener('load', () => {
 
 // Theme toggle
 const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.querySelector('.theme-icon');
 const body = document.body;
 
 // Verifica se há tema salvo no localStorage
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light') {
     body.classList.add('light-theme');
-    themeIcon.textContent = '🌙';
+    themeToggle.checked = true;
 }
 
-themeToggle.addEventListener('click', () => {
+themeToggle.addEventListener('change', () => {
     body.classList.toggle('light-theme');
     
     if (body.classList.contains('light-theme')) {
-        themeIcon.textContent = '🌙';
         localStorage.setItem('theme', 'light');
     } else {
-        themeIcon.textContent = '☀️';
         localStorage.setItem('theme', 'dark');
     }
 });
@@ -242,6 +239,92 @@ function animate() {
 }
 
 animate();
+
+// Floating symbols
+const symbolsContainer = document.getElementById('floating-symbols');
+
+function createFloatingSymbol() {
+    if (!symbolsContainer) return;
+    
+    const symbol = document.createElement('div');
+    symbol.className = 'floating-symbol';
+    symbol.textContent = '</>';
+    
+    // Define a cor baseada no tema atual
+    const isLightTheme = body.classList.contains('light-theme');
+    symbol.style.color = isLightTheme ? '#000000' : '#ffffff';
+    
+    // Posição aleatória
+    symbol.style.left = Math.random() * 100 + '%';
+    symbol.style.top = Math.random() * 100 + '%';
+    
+    // Rotações 3D aleatórias (range reduzido para não ficarem muito finos)
+    const rotateX = Math.random() * 60 - 30; // -30 a 30 graus
+    const rotateY = Math.random() * 60 - 30; // -30 a 30 graus
+    const rotateZ = Math.random() * 90 - 45; // -45 a 45 graus
+    
+    // Cria keyframe único para este símbolo
+    const animationName = `float${Date.now()}${Math.floor(Math.random() * 10000)}`;
+    const keyframes = `
+        @keyframes ${animationName} {
+            0% {
+                opacity: 0;
+                transform: rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translateY(0);
+            }
+            10% {
+                opacity: 0.03;
+            }
+            50% {
+                opacity: 0.08;
+                transform: rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translateY(-10px);
+            }
+            90% {
+                opacity: 0.03;
+            }
+            100% {
+                opacity: 0;
+                transform: rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translateY(-20px);
+            }
+        }
+    `;
+    
+    // Adiciona o keyframe ao documento
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = keyframes;
+    document.head.appendChild(styleSheet);
+    
+    // Aplica a animação
+    symbol.style.animation = `${animationName} 4s ease-in-out forwards`;
+    
+    symbolsContainer.appendChild(symbol);
+    
+    // Remove o elemento e stylesheet após a animação
+    setTimeout(() => {
+        symbol.remove();
+        styleSheet.remove();
+    }, 4100);
+}
+
+// Cria múltiplos símbolos de uma vez
+function createMultipleSymbols() {
+    const count = Math.floor(Math.random() * 3) + 2; // Entre 2-4 símbolos
+    for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+            createFloatingSymbol();
+        }, i * 200); // Pequeno delay entre cada símbolo
+    }
+}
+
+// Cria símbolos em intervalos aleatórios
+function startFloatingSymbols() {
+    createMultipleSymbols();
+    
+    const nextInterval = Math.random() * 3000 + 2000; // Entre 2-5 segundos
+    setTimeout(startFloatingSymbols, nextInterval);
+}
+
+// Inicia após a página carregar
+setTimeout(startFloatingSymbols, 2000);
 
 
 // Detectar se é dispositivo móvel
