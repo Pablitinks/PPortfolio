@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="intro-screen">
+        <h1 class="intro-title">Pablo Felipe</h1>
+        <p class="intro-subtitle">Portfolio</p>
+    </div>
     <div id="custom-cursor"></div>
     <canvas id="trail-canvas"></canvas>
     <div id="floating-symbols"></div>
@@ -18,9 +22,11 @@
         </div>
         
         <nav class="sidebar-nav">
-            <a href="#home" class="nav-item">Home</a>
-            <a href="#projects" class="nav-item">Projects</a>
-            <a href="#contacts" class="nav-item">Contacts</a>
+            <a href="#home" class="nav-item">Início</a>
+            <a href="#about" class="nav-item">Sobre</a>
+            <a href="#skills" class="nav-item">Habilidades</a>
+            <a href="#projects" class="nav-item">Projetos</a>
+            <a href="#contacts" class="nav-item">Contato</a>
         </nav>
         
         <div class="theme-toggle-wrapper">
@@ -40,18 +46,57 @@
     <main class="main-content">
 
         <section id="home" class="home-section">
-            <div class="intro-text">
-                <p>My name is Pablo Felipe, I'm 18 years old.</p>
-                <p>I believe in the power of design and code to create meaningful digital experiences.</p>
-                <p>As a developer and designer, I craft solutions that blend aesthetics with functionality, always pursuing innovation and excellence in every project.</p>
+                        <div class="intro-text">
+                                <h2 class="intro-greeting">Olá, eu sou</h2>
+                                <h2 class="intro-name">pablo felipe</h2>
+                                <p class="intro-role">Aspirante a Dev da Turma 7 do <a href="https://www.alphaedtech.org.br/" target="_blank" class="alpha-link">Alpha Edtech</a></p>
+                                <p>Transformo ideias em experiências digitais únicas.</p>
+                        </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-content">
+                <p>Tenho 18 anos e sou apaixonado por tecnologia e design. Acredito no poder do código e da criatividade para criar experiências digitais significativas que fazem a diferença.</p>
+                <p>Como Programador, minha missão é criar soluções que não apenas funcionem perfeitamente, mas que também encantem os usuários. Cada projeto é uma oportunidade de aprender algo novo e superar limites.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <h2 class="section-title">Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Ferramentas</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Figma</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="projects" class="projects-section">
+            <h2 class="section-title">Projetos</h2>
             <article class="project">
                 <a href="https://ecopoint.web.app/" target="_blank" class="project-link">
                     <h2 class="project-title">EcoPoint</h2>
                 </a>
+                <p class="project-description">Plataforma web para promover a reciclagem e sustentabilidade, conectando pessoas a pontos de coleta e informações ambientais.</p>
+                <div class="project-tags">
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">Firebase</span>
+                    <span class="project-tag">UI/UX</span>
+                </div>
                 <div class="project-preview project-preview-image">
                     <img src="ecopoint-preview.png" alt="EcoPoint Preview">
                 </div>
@@ -62,6 +107,11 @@
                 <a href="https://starwalker8p.github.io/StarLog/" target="_blank" class="project-link">
                     <h2 class="project-title">StarLog</h2>
                 </a>
+                <p class="project-description">Sistema de registro e acompanhamento pessoal com interface minimalista e intuitiva.</p>
+                <div class="project-tags">
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">CSS3</span>
+                </div>
                 <div class="project-preview project-preview-image">
                     <img src="starlog-preview.png" alt="StarLog Preview">
                 </div>
@@ -72,6 +122,12 @@
                 <a href="https://starwalker8p.github.io/Conversor-de-Temperatura/" target="_blank" class="project-link">
                     <h2 class="project-title">Conversor de Temperatura</h2>
                 </a>
+                <p class="project-description">Ferramenta prática para conversão entre diferentes escalas de temperatura (Celsius, Fahrenheit, Kelvin).</p>
+                <div class="project-tags">
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">HTML5</span>
+                    <span class="project-tag">CSS3</span>
+                </div>
                 <div class="project-preview project-preview-image">
                     <img src="conversor-preview.png" alt="Conversor Preview">
                 </div>
@@ -82,6 +138,12 @@
                 <a href="https://starwalker8p.github.io/Contador/" target="_blank" class="project-link">
                     <h2 class="project-title">Contador</h2>
                 </a>
+                <p class="project-description">Aplicativo contador simples e funcional com design clean e animações suaves.</p>
+                <div class="project-tags">
+                    <span class="project-tag">HTML5</span>
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">CSS3</span>
+                </div>
                 <div class="project-preview project-preview-image">
                     <img src="contador-preview.png" alt="Contador Preview">
                 </div>
@@ -92,6 +154,12 @@
                 <a href="https://starwalker8p.github.io/Horario/" target="_blank" class="project-link">
                     <h2 class="project-title">Horário</h2>
                 </a>
+                <p class="project-description">Interface dinâmica que exibe horário atual com mudanças visuais baseadas no período do dia.</p>
+                <div class="project-tags">
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">HTML5</span>
+                    <span class="project-tag">CSS3</span>
+                </div>
                 <div class="project-preview project-preview-image">
                     <img src="horario-preview.png" alt="Horário Preview">
                 </div>
@@ -99,22 +167,23 @@
             </article>
         </section>
         <section id="contacts" class="contact-section">
-            <h2 class="section-heading">Contact</h2>
+            <h2 class="section-heading">Entre em Contato</h2>
+            <p class="contact-intro">Tem algum projeto em mente ou quer trocar uma ideia? Fique à vontade para entrar em contato comigo!</p>
             <div class="contact-content">
                 <div class="contact-item">
                     <span>Email:</span>
                     <a href="mailto:pablitinks@gmail.com">pablitinks@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <span>Phone:</span>
+                    <span>Telefone:</span>
                     <a href="tel:+5588994464373">+55 (88) 99446-4373</a>
                 </div>
                 <div class="contact-item">
-                    <span>Location:</span>
+                    <span>Localização:</span>
                     <span>Tianguá, Ceará, Brasil</span>
                 </div>
                 <div class="contact-item">
-                    <span>Social:</span>
+                    <span>Redes Sociais:</span>
                     <div class="social-links">
                         <a href="https://github.com/Pablitinks" target="_blank">GitHub</a>
                         <a href="https://www.linkedin.com/in/pablo-felipe-ara%C3%BAjo-ferreira-6649ba368/" target="_blank">LinkedIn</a>

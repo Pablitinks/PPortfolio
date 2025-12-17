@@ -24,7 +24,7 @@ function typeWriter() {
 }
 
 // Glitch animation for tagline
-const glitchText = 'Developer & Designer';
+const glitchText = 'Programador';
 const glitchElement = document.getElementById('glitch-text');
 const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`αβγδεζηθικλμνξοπρστυφχψω';
 
@@ -65,7 +65,7 @@ function startGlitchAnimation() {
 }
 
 window.addEventListener('load', () => {
-    setTimeout(typeWriter, 500);
+    setTimeout(typeWriter, 2900);
 });
 
 // Theme toggle
