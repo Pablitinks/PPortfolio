@@ -834,11 +834,11 @@ body.light-theme .alpha-link:hover {
 
 .project-preview {
     position: fixed;
-    left: 18vw;
+    left: 15vw;
     top: 62%;
     transform: translateY(-50%);
-    width: 45vw;
-    max-width: 800px;
+    width: 38vw;
+    max-width: 700px;
     aspect-ratio: 16 / 9;
     background: #000000;
     border: 2px solid #ffffff;
