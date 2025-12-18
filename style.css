@@ -75,7 +75,7 @@ body {
 }
 
 body.light-theme #intro-screen {
-    background: #f5f5f5;
+    background: #EEEEEE;
 }
 
 body.light-theme .intro-title {
@@ -242,7 +242,7 @@ body {
 
 body.light-theme .page-wrapper::before,
 body.light-theme .page-wrapper::after {
-    background: #f5f5f5;
+    background: #EEEEEE;
 }
 
 
@@ -413,7 +413,7 @@ body.light-theme .page-wrapper::after {
 
 /* Tema Claro */
 body.light-theme {
-    background: #f5f5f5;
+    background: #EEEEEE;
     color: #000000;
 }
 
@@ -489,7 +489,7 @@ body.light-theme .theme-toggle:hover {
 }
 
 body.light-theme .project-preview {
-    background: #ffffff;
+    background: #EEEEEE;
     border-color: #000000;
 }
 
