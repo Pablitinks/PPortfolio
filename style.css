@@ -165,6 +165,19 @@ body {
     cursor: none;
 }
 
+/* Restaurar cursor padrão em dispositivos touch */
+@media (hover: none) and (pointer: coarse) {
+    body {
+        cursor: auto !important;
+    }
+    #custom-cursor {
+        display: none !important;
+    }
+    #trail-canvas {
+        display: none !important;
+    }
+}
+
 #custom-cursor {
     position: fixed;
     width: 10px;

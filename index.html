@@ -34,11 +34,11 @@
         </div>
         
         <nav class="sidebar-nav">
-            <a href="#home" class="nav-item">Início</a>
-            <a href="#about" class="nav-item">Sobre</a>
-            <a href="#skills" class="nav-item">Habilidades</a>
-            <a href="#projects" class="nav-item">Projetos</a>
-            <a href="#contacts" class="nav-item">Contato</a>
+            <a href="#home" class="nav-item" data-i18n="nav.home">Início</a>
+            <a href="#about" class="nav-item" data-i18n="nav.about">Sobre</a>
+            <a href="#skills" class="nav-item" data-i18n="nav.skills">Habilidades</a>
+            <a href="#projects" class="nav-item" data-i18n="nav.projects">Projetos</a>
+            <a href="#contacts" class="nav-item" data-i18n="nav.contact">Contato</a>
         </nav>
         
         <footer class="sidebar-footer">
@@ -50,26 +50,26 @@
 
         <section id="home" class="home-section">
                         <div class="intro-text">
-                                <h2 class="intro-greeting">Olá, eu sou</h2>
+                                <h2 class="intro-greeting" data-i18n="home.greeting">Olá, eu sou</h2>
                                 <h2 class="intro-name">Pablo Felipe</h2>
-                                <p class="intro-role">Aspirante a Dev da Turma 7 do <a href="https://www.alphaedtech.org.br/" target="_blank" class="alpha-link">Alpha Edtech</a></p>
-                                <p>Transformo ideias em experiências digitais únicas.</p>
+                                <p class="intro-role" data-i18n="home.role">Aspirante a Dev da Turma 7 do <a href="https://www.alphaedtech.org.br/" target="_blank" class="alpha-link">Alpha Edtech</a></p>
+                                <p data-i18n="home.tagline">Transformo ideias em experiências digitais únicas.</p>
                         </div>
         </section>
 
         <section id="about" class="about-section">
-            <h2 class="section-title">Sobre Mim</h2>
+            <h2 class="section-title" data-i18n="about.title">Sobre Mim</h2>
             <div class="about-content">
-                <p>Tenho 18 anos e sou apaixonado por tecnologia e design. Acredito no poder do código e da criatividade para criar experiências digitais significativas que fazem a diferença.</p>
-                <p>Como Programador, minha missão é criar soluções que não apenas funcionem perfeitamente, mas que também encantem os usuários. Cada projeto é uma oportunidade de aprender algo novo e superar limites.</p>
+                <p data-i18n="about.p1">Tenho 18 anos e sou apaixonado por tecnologia e design. Acredito no poder do código e da criatividade para criar experiências digitais significativas que fazem a diferença.</p>
+                <p data-i18n="about.p2">Como Programador, minha missão é criar soluções que não apenas funcionem perfeitamente, mas que também encantem os usuários. Cada projeto é uma oportunidade de aprender algo novo e superar limites.</p>
             </div>
         </section>
 
         <section id="skills" class="skills-section">
-            <h2 class="section-title">Habilidades</h2>
+            <h2 class="section-title" data-i18n="skills.title">Habilidades</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3 class="skill-category-title">Frontend</h3>
+                    <h3 class="skill-category-title" data-i18n="skills.frontend">Frontend</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3 class="skill-category-title">Ferramentas</h3>
+                    <h3 class="skill-category-title" data-i18n="skills.tools">Ferramentas</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">GitHub</span>
@@ -89,12 +89,12 @@
         </section>
 
         <section id="projects" class="projects-section">
-            <h2 class="section-title">Projetos</h2>
+            <h2 class="section-title" data-i18n="projects.title">Projetos</h2>
             <article class="project">
                 <a href="https://ecopoint.web.app/" target="_blank" class="project-link">
                     <h2 class="project-title">EcoPoint</h2>
                 </a>
-                <p class="project-description">Plataforma web para promover a reciclagem e sustentabilidade, conectando pessoas a pontos de coleta e informações ambientais.</p>
+                <p class="project-description" data-i18n="projects.ecopoint.desc">Plataforma web para promover a reciclagem e sustentabilidade, conectando pessoas a pontos de coleta e informações ambientais.</p>
                 <div class="project-tags">
                     <span class="project-tag">React</span>
                     <span class="project-tag">Firebase</span>
@@ -103,14 +103,14 @@
                 <div class="project-preview project-preview-image">
                     <img src="assets/images/ecopoint-preview.png" alt="EcoPoint Preview">
                 </div>
-                <p class="project-meta">Dev / Design: Pablo Felipe</p>
+                <p class="project-meta" data-i18n="projects.meta">Dev / Design: Pablo Felipe</p>
             </article>
 
             <article class="project">
                 <a href="https://starwalker8p.github.io/StarLog/" target="_blank" class="project-link">
                     <h2 class="project-title">StarLog</h2>
                 </a>
-                <p class="project-description">Sistema de registro e acompanhamento pessoal com interface minimalista e intuitiva.</p>
+                <p class="project-description" data-i18n="projects.starlog.desc">Sistema de registro e acompanhamento pessoal com interface minimalista e intuitiva.</p>
                 <div class="project-tags">
                     <span class="project-tag">React</span>
                     <span class="project-tag">CSS3</span>
@@ -118,14 +118,14 @@
                 <div class="project-preview project-preview-image">
                     <img src="assets/images/starlog-preview.png" alt="StarLog Preview">
                 </div>
-                <p class="project-meta">Dev / Design: Pablo Felipe</p>
+                <p class="project-meta" data-i18n="projects.meta">Dev / Design: Pablo Felipe</p>
             </article>
 
             <article class="project">
                 <a href="https://starwalker8p.github.io/Conversor-de-Temperatura/" target="_blank" class="project-link">
-                    <h2 class="project-title">Conversor de Temperatura</h2>
+                    <h2 class="project-title" data-i18n="projects.converter.title">Conversor de Temperatura</h2>
                 </a>
-                <p class="project-description">Ferramenta prática para conversão entre diferentes escalas de temperatura (Celsius, Fahrenheit, Kelvin).</p>
+                <p class="project-description" data-i18n="projects.converter.desc">Ferramenta prática para conversão entre diferentes escalas de temperatura (Celsius, Fahrenheit, Kelvin).</p>
                 <div class="project-tags">
                     <span class="project-tag">JavaScript</span>
                     <span class="project-tag">HTML5</span>
@@ -134,14 +134,14 @@
                 <div class="project-preview project-preview-image">
                     <img src="assets/images/conversor-preview.png" alt="Conversor Preview">
                 </div>
-                <p class="project-meta">Dev / Design: Pablo Felipe</p>
+                <p class="project-meta" data-i18n="projects.meta">Dev / Design: Pablo Felipe</p>
             </article>
 
             <article class="project">
                 <a href="https://starwalker8p.github.io/Contador/" target="_blank" class="project-link">
-                    <h2 class="project-title">Contador</h2>
+                    <h2 class="project-title" data-i18n="projects.counter.title">Contador</h2>
                 </a>
-                <p class="project-description">Aplicativo contador simples e funcional com design clean e animações suaves.</p>
+                <p class="project-description" data-i18n="projects.counter.desc">Aplicativo contador simples e funcional com design clean e animações suaves.</p>
                 <div class="project-tags">
                     <span class="project-tag">HTML5</span>
                     <span class="project-tag">JavaScript</span>
@@ -150,14 +150,14 @@
                 <div class="project-preview project-preview-image">
                     <img src="assets/images/contador-preview.png" alt="Contador Preview">
                 </div>
-                <p class="project-meta">Dev / Design: Pablo Felipe</p>
+                <p class="project-meta" data-i18n="projects.meta">Dev / Design: Pablo Felipe</p>
             </article>
 
             <article class="project">
                 <a href="https://starwalker8p.github.io/Horario/" target="_blank" class="project-link">
-                    <h2 class="project-title">Horário</h2>
+                    <h2 class="project-title" data-i18n="projects.time.title">Horário</h2>
                 </a>
-                <p class="project-description">Interface dinâmica que exibe horário atual com mudanças visuais baseadas no período do dia.</p>
+                <p class="project-description" data-i18n="projects.time.desc">Interface dinâmica que exibe horário atual com mudanças visuais baseadas no período do dia.</p>
                 <div class="project-tags">
                     <span class="project-tag">JavaScript</span>
                     <span class="project-tag">HTML5</span>
@@ -166,27 +166,27 @@
                 <div class="project-preview project-preview-image">
                     <img src="assets/images/horario-preview.png" alt="Horário Preview">
                 </div>
-                <p class="project-meta">Dev / Design: Pablo Felipe</p>
+                <p class="project-meta" data-i18n="projects.meta">Dev / Design: Pablo Felipe</p>
             </article>
         </section>
         <section id="contacts" class="contact-section">
-            <h2 class="section-heading">Entre em Contato</h2>
-            <p class="contact-intro">Tem algum projeto em mente ou quer trocar uma ideia? Fique à vontade para entrar em contato comigo!</p>
+            <h2 class="section-heading" data-i18n="contact.title">Entre em Contato</h2>
+            <p class="contact-intro" data-i18n="contact.intro">Tem algum projeto em mente ou quer trocar uma ideia? Fique à vontade para entrar em contato comigo!</p>
             <div class="contact-content">
                 <div class="contact-item">
-                    <span>Email:</span>
+                    <span data-i18n="contact.email">Email:</span>
                     <a href="mailto:pablitinks@gmail.com">pablitinks@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <span>Telefone:</span>
+                    <span data-i18n="contact.phone">Telefone:</span>
                     <a href="tel:+5588994464373">+55 (88) 99446-4373</a>
                 </div>
                 <div class="contact-item">
-                    <span>Localização:</span>
-                    <span>Tianguá, Ceará, Brasil</span>
+                    <span data-i18n="contact.location">Localização:</span>
+                    <span data-i18n="contact.locationValue">Tianguá, Ceará, Brasil</span>
                 </div>
                 <div class="contact-item">
-                    <span>Redes Sociais:</span>
+                    <span data-i18n="contact.social">Redes Sociais:</span>
                     <div class="social-links">
                         <a href="https://github.com/Pablitinks" target="_blank">GitHub</a>
                         <a href="https://www.linkedin.com/in/pablo-felipe-ara%C3%BAjo-ferreira-6649ba368/" target="_blank">LinkedIn</a>

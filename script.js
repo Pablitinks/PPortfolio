@@ -1,4 +1,173 @@
+// Internacionalização
+const translations = {
+    pt: {
+        nav: {
+            home: 'Início',
+            about: 'Sobre',
+            skills: 'Habilidades',
+            projects: 'Projetos',
+            contact: 'Contato'
+        },
+        home: {
+            greeting: 'Olá, eu sou',
+            role: 'Aspirante a Dev da Turma 7 do <a href="https://www.alphaedtech.org.br/" target="_blank" class="alpha-link">Alpha Edtech</a>',
+            tagline: 'Transformo ideias em experiências digitais únicas.'
+        },
+        about: {
+            title: 'Sobre Mim',
+            p1: 'Tenho 18 anos e sou apaixonado por tecnologia e design. Acredito no poder do código e da criatividade para criar experiências digitais significativas que fazem a diferença.',
+            p2: 'Como Programador, minha missão é criar soluções que não apenas funcionem perfeitamente, mas que também encantem os usuários. Cada projeto é uma oportunidade de aprender algo novo e superar limites.'
+        },
+        skills: {
+            title: 'Habilidades',
+            frontend: 'Frontend',
+            tools: 'Ferramentas'
+        },
+        projects: {
+            title: 'Projetos',
+            meta: 'Dev / Design: Pablo Felipe',
+            ecopoint: {
+                desc: 'Plataforma web para promover a reciclagem e sustentabilidade, conectando pessoas a pontos de coleta e informações ambientais.'
+            },
+            starlog: {
+                desc: 'Sistema de registro e acompanhamento pessoal com interface minimalista e intuitiva.'
+            },
+            converter: {
+                title: 'Conversor de Temperatura',
+                desc: 'Ferramenta prática para conversão entre diferentes escalas de temperatura (Celsius, Fahrenheit, Kelvin).'
+            },
+            counter: {
+                title: 'Contador',
+                desc: 'Aplicativo contador simples e funcional com design clean e animações suaves.'
+            },
+            time: {
+                title: 'Horário',
+                desc: 'Interface dinâmica que exibe horário atual com mudanças visuais baseadas no período do dia.'
+            }
+        },
+        contact: {
+            title: 'Entre em Contato',
+            intro: 'Tem algum projeto em mente ou quer trocar uma ideia? Fique à vontade para entrar em contato comigo!',
+            email: 'Email:',
+            phone: 'Telefone:',
+            location: 'Localização:',
+            locationValue: 'Tianguá, Ceará, Brasil',
+            social: 'Redes Sociais:'
+        },
+        glitchText: 'Programador'
+    },
+    en: {
+        nav: {
+            home: 'Home',
+            about: 'About',
+            skills: 'Skills',
+            projects: 'Projects',
+            contact: 'Contact'
+        },
+        home: {
+            greeting: 'Hello, I am',
+            role: 'Aspiring Dev from Class 7 of <a href="https://www.alphaedtech.org.br/" target="_blank" class="alpha-link">Alpha Edtech</a>',
+            tagline: 'I transform ideas into unique digital experiences.'
+        },
+        about: {
+            title: 'About Me',
+            p1: 'I am 18 years old and passionate about technology and design. I believe in the power of code and creativity to create meaningful digital experiences that make a difference.',
+            p2: 'As a Developer, my mission is to create solutions that not only work perfectly, but also delight users. Each project is an opportunity to learn something new and push boundaries.'
+        },
+        skills: {
+            title: 'Skills',
+            frontend: 'Frontend',
+            tools: 'Tools'
+        },
+        projects: {
+            title: 'Projects',
+            meta: 'Dev / Design: Pablo Felipe',
+            ecopoint: {
+                desc: 'Web platform to promote recycling and sustainability, connecting people to collection points and environmental information.'
+            },
+            starlog: {
+                desc: 'Personal tracking and logging system with a minimalist and intuitive interface.'
+            },
+            converter: {
+                title: 'Temperature<br>Converter',
+                desc: 'Practical tool for conversion between different temperature scales (Celsius, Fahrenheit, Kelvin).'
+            },
+            counter: {
+                title: 'Counter',
+                desc: 'Simple and functional counter app with clean design and smooth animations.'
+            },
+            time: {
+                title: 'Time',
+                desc: 'Dynamic interface that displays current time with visual changes based on the time of day.'
+            }
+        },
+        contact: {
+            title: 'Get in Touch',
+            intro: 'Have a project in mind or want to exchange ideas? Feel free to contact me!',
+            email: 'Email:',
+            phone: 'Phone:',
+            location: 'Location:',
+            locationValue: 'Tianguá, Ceará, Brazil',
+            social: 'Social Media:'
+        },
+        glitchText: 'Developer'
+    }
+};
+
+// Detectar idioma do navegador
+function detectLanguage() {
+    const browserLang = navigator.language || navigator.userLanguage;
+    // Se o navegador estiver em português (pt, pt-BR, pt-PT), usa português, senão inglês
+    return browserLang.toLowerCase().startsWith('pt') ? 'pt' : 'en';
+}
+
+// Detectar o idioma atual
+const currentLang = detectLanguage();
+
+// Elementos do DOM
 const cursor = document.getElementById('custom-cursor');
+const glitchElement = document.getElementById('glitch-text');
+
+// Aplicar tradução
+function applyTranslation(lang) {
+    const t = translations[lang];
+    
+    // Atualizar todos os elementos com data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const keys = key.split('.');
+        let value = t;
+        
+        // Navegar pelo objeto de tradução
+        for (const k of keys) {
+            value = value[k];
+        }
+        
+        if (value) {
+            element.innerHTML = value;
+        }
+    });
+    
+    // Atualizar o texto do glitch
+    if (glitchElement) {
+        glitchElement.textContent = t.glitchText;
+    }
+    
+    // Atualizar atributo lang do HTML
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+}
+
+// Inicializar idioma
+applyTranslation(currentLang);
+
+// Detectar dispositivos touch
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// Esconder cursor customizado em dispositivos touch
+if (isTouchDevice) {
+    cursor.style.display = 'none';
+    document.body.style.cursor = 'auto';
+}
 
 // Typing animation
 const typingText = 'Pablo Felipe';
@@ -24,11 +193,11 @@ function typeWriter() {
 }
 
 // Glitch animation for tagline
-const glitchText = 'Programador';
-const glitchElement = document.getElementById('glitch-text');
 const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`αβγδεζηθικλμνξοπρστυφχψω';
 
 function startGlitchAnimation() {
+    // Usar o texto traduzido do glitch
+    const glitchText = translations[currentLang].glitchText;
     const letters = glitchText.split('');
     const revealed = new Array(letters.length).fill(false);
     let iterations = 0;
@@ -93,6 +262,11 @@ themeToggle.addEventListener('change', () => {
 const canvas = document.getElementById('trail-canvas');
 const ctx = canvas.getContext('2d');
 
+// Esconder canvas de rastro em dispositivos touch
+if (isTouchDevice) {
+    canvas.style.display = 'none';
+}
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -105,22 +279,26 @@ let mouseY = window.innerHeight / 2;
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
     
+    // Não atualizar cursor customizado em dispositivos touch
+    if (!isTouchDevice) {
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+        
 
-    const target = e.target;
-    const isClickable = target.tagName === 'A' || 
-                       target.tagName === 'BUTTON' || 
-                       target.onclick !== null ||
-                       window.getComputedStyle(target).cursor === 'pointer';
-    
-    if (isClickable) {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
-    } else {
-        cursor.style.width = '10px';
-        cursor.style.height = '10px';
+        const target = e.target;
+        const isClickable = target.tagName === 'A' || 
+                           target.tagName === 'BUTTON' || 
+                           target.onclick !== null ||
+                           window.getComputedStyle(target).cursor === 'pointer';
+        
+        if (isClickable) {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+        } else {
+            cursor.style.width = '10px';
+            cursor.style.height = '10px';
+        }
     }
 });
 
@@ -182,58 +360,61 @@ navItems.forEach(item => {
 });
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    points.push({ x: mouseX, y: mouseY });
-    
-    if (points.length > maxPoints) {
-        points.shift();
-    }
-    
+    // Não animar rastro em dispositivos touch
+    if (!isTouchDevice) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        points.push({ x: mouseX, y: mouseY });
+        
+        if (points.length > maxPoints) {
+            points.shift();
+        }
+        
 
-    if (points.length < 2) {
-        requestAnimationFrame(animate);
-        return;
+        if (points.length < 2) {
+            requestAnimationFrame(animate);
+            return;
+        }
+        
+        const smoothed = [points[0]];
+        for (let i = 1; i < points.length; i++) {
+            const prev = smoothed[smoothed.length - 1];
+            const curr = points[i];
+            smoothed.push({
+                x: prev.x * 0.5 + curr.x * 0.5,
+                y: prev.y * 0.5 + curr.y * 0.5
+            });
+        }
+        
+        ctx.beginPath();
+        ctx.moveTo(smoothed[0].x, smoothed[0].y);
+        
+        for (let i = 1; i < smoothed.length - 1; i++) {
+            const xc = (smoothed[i].x + smoothed[i + 1].x) / 2;
+            const yc = (smoothed[i].y + smoothed[i + 1].y) / 2;
+            ctx.quadraticCurveTo(smoothed[i].x, smoothed[i].y, xc, yc);
+        }
+        
+        ctx.lineTo(mouseX, mouseY);
+        
+        // Detecta se o tema claro está ativo
+        const isLightTheme = body.classList.contains('light-theme');
+        const trailColor = isLightTheme ? '0, 0, 0' : '255, 255, 255';
+        
+        const gradient = ctx.createLinearGradient(
+            smoothed[0].x, smoothed[0].y,
+            mouseX, mouseY
+        );
+        gradient.addColorStop(0, `rgba(${trailColor}, 0)`);
+        gradient.addColorStop(0.5, `rgba(${trailColor}, 0.5)`);
+        gradient.addColorStop(1, `rgba(${trailColor}, 0.9)`);
+        
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.stroke();
     }
-    
-    const smoothed = [points[0]];
-    for (let i = 1; i < points.length; i++) {
-        const prev = smoothed[smoothed.length - 1];
-        const curr = points[i];
-        smoothed.push({
-            x: prev.x * 0.5 + curr.x * 0.5,
-            y: prev.y * 0.5 + curr.y * 0.5
-        });
-    }
-    
-    ctx.beginPath();
-    ctx.moveTo(smoothed[0].x, smoothed[0].y);
-    
-    for (let i = 1; i < smoothed.length - 1; i++) {
-        const xc = (smoothed[i].x + smoothed[i + 1].x) / 2;
-        const yc = (smoothed[i].y + smoothed[i + 1].y) / 2;
-        ctx.quadraticCurveTo(smoothed[i].x, smoothed[i].y, xc, yc);
-    }
-    
-    ctx.lineTo(mouseX, mouseY);
-    
-    // Detecta se o tema claro está ativo
-    const isLightTheme = body.classList.contains('light-theme');
-    const trailColor = isLightTheme ? '0, 0, 0' : '255, 255, 255';
-    
-    const gradient = ctx.createLinearGradient(
-        smoothed[0].x, smoothed[0].y,
-        mouseX, mouseY
-    );
-    gradient.addColorStop(0, `rgba(${trailColor}, 0)`);
-    gradient.addColorStop(0.5, `rgba(${trailColor}, 0.5)`);
-    gradient.addColorStop(1, `rgba(${trailColor}, 0.9)`);
-    
-    ctx.strokeStyle = gradient;
-    ctx.lineWidth = 2;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.stroke();
     
     requestAnimationFrame(animate);
 }
