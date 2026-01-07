@@ -33,7 +33,7 @@ const translations = {
                 desc: 'Sistema de registro e acompanhamento pessoal com interface minimalista e intuitiva.'
             },
             converter: {
-                title: 'Conversor de Temperatura',
+                title: 'Conversor de<br>Temperatura',
                 desc: 'Ferramenta prática para conversão entre diferentes escalas de temperatura (Celsius, Fahrenheit, Kelvin).'
             },
             counter: {

@@ -45,7 +45,7 @@ body {
 .intro-subtitle {
     font-size: 1.5vw;
     font-weight: 300;
-    color: #999999;
+    color: #ffffff;
     letter-spacing: 0.2vw;
     text-transform: uppercase;
     opacity: 0;
@@ -83,7 +83,7 @@ body.light-theme .intro-title {
 }
 
 body.light-theme .intro-subtitle {
-    color: #666666;
+    color: #000000;
 }
 
 
@@ -299,7 +299,7 @@ body.light-theme .page-wrapper::after {
 
 .tagline {
     font-size: 1.5vw;
-    color: #999999;
+    color: #ffffff;
     font-weight: 400;
 }
 
@@ -409,7 +409,7 @@ body.light-theme .page-wrapper::after {
 }
 
 .theme-toggle-checkbox:checked + .theme-toggle-label .sun-icon {
-    opacity: 0.3;
+    opacity: 1;
     filter: invert(0);
 }
 
@@ -421,7 +421,7 @@ body.light-theme .page-wrapper::after {
 .sidebar-footer {
     margin-top: auto;
     font-size: 1vw;
-    color: #666666;
+    color: #ffffff;
 }
 
 /* Tema Claro */
@@ -450,7 +450,7 @@ body.light-theme .project-meta,
 body.light-theme .intro-greeting,
 body.light-theme .about-content p,
 body.light-theme .project-description {
-    color: #666666;
+    color: #000000;
 }
 
 body.light-theme .skill-tag {
@@ -468,8 +468,8 @@ body.light-theme .skill-tag:hover {
 }
 
 body.light-theme .project-tag {
-    border-color: #999999;
-    color: #999999;
+    border-color: #000000;
+    color: #000000;
 }
 
 body.light-theme .project-tag::before {
@@ -484,7 +484,7 @@ body.light-theme .project-tag:hover {
 }
 
 body.light-theme .sidebar-footer {
-    color: #999999;
+    color: #000000;
 }
 
 body.light-theme .project-link {
@@ -539,11 +539,11 @@ body.light-theme .contact-item a {
 }
 
 body.light-theme .contact-item span {
-    color: #666666;
+    color: #000000;
 }
 
 body.light-theme .sidebar-footer p {
-    color: #999999;
+    color: #000000;
 }
 
 
@@ -585,6 +585,7 @@ body.light-theme .sidebar-footer p {
     padding-bottom: 10vh;
     margin-bottom: 8vh;
     width: 100%;
+    position: relative;
 }
 
 .intro-text {
@@ -596,7 +597,7 @@ body.light-theme .sidebar-footer p {
 .intro-greeting {
     font-size: 2vw;
     font-weight: 300;
-    color: #999999;
+    color: #ffffff;
     margin-bottom: 0.5vw;
 }
 
@@ -624,8 +625,8 @@ body.light-theme .sidebar-footer p {
 }
 
 .alpha-link:hover {
-    color: #999999;
-    border-bottom-color: #999999;
+    color: #ffffff;
+    border-bottom-color: #ffffff;
 }
 
 body.light-theme .alpha-link {
@@ -634,16 +635,69 @@ body.light-theme .alpha-link {
 }
 
 body.light-theme .alpha-link:hover {
-    color: #666666;
-    border-bottom-color: #666666;
+    color: #000000;
+    border-bottom-color: #000000;
 }
 
 .intro-text p {
     font-size: 1.4vw;
-    color: #cccccc;
+    color: #ffffff;
     margin-bottom: 2vw;
     font-weight: 300;
     letter-spacing: -0.02vw;
+}
+
+/* Scroll Hint */
+.scroll-hint {
+    position: absolute;
+    bottom: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vw;
+    opacity: 0.3;
+    animation: fadeInOut 3s ease-in-out infinite;
+    z-index: 10;
+    margin-left: -15vw;
+}
+
+.scroll-hint-text {
+    font-size: 0.9vw;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 0.1vw;
+    text-transform: uppercase;
+}
+
+.scroll-hint-arrow {
+    font-size: 1.5vw;
+    color: #ffffff;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+body.light-theme .scroll-hint-text,
+body.light-theme .scroll-hint-arrow {
+    color: #000000;
 }
 
 /* Seção Sobre */
@@ -675,7 +729,7 @@ body.light-theme .alpha-link:hover {
 
 .about-content p {
     font-size: 1.5vw;
-    color: #cccccc;
+    color: #ffffff;
     line-height: 1.8;
     margin-bottom: 2vw;
     font-weight: 300;
@@ -768,7 +822,7 @@ body.light-theme .alpha-link:hover {
 
 .project-description {
     font-size: 1.3vw;
-    color: #999999;
+    color: #ffffff;
     margin: 1.5vw 0;
     line-height: 1.6;
     font-weight: 300;
@@ -786,8 +840,8 @@ body.light-theme .alpha-link:hover {
 .project-tag {
     padding: 0.4vw 1vw;
     background: transparent;
-    border: 1px solid #666666;
-    color: #666666;
+    border: 1px solid #ffffff;
+    color: #ffffff;
     font-size: 0.9vw;
     font-weight: 300;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -835,6 +889,37 @@ body.light-theme .alpha-link:hover {
     color: #ffffff;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline;
+    position: relative;
+}
+
+.project-title::before {
+    content: '☞';
+    position: absolute;
+    right: calc(100% + 2vw);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5vw;
+    opacity: 0.6;
+    color: #ffffff;
+    animation: pointerFloat 1.5s ease-in-out infinite;
+}
+
+body.light-theme .project-title::before {
+    color: #000000;
+}
+
+.project-link:hover .project-title::before {
+    animation: none;
+    opacity: 0;
+}
+
+@keyframes pointerFloat {
+    0%, 100% {
+        transform: translateY(-50%) translateX(0);
+    }
+    50% {
+        transform: translateY(-50%) translateX(-5px);
+    }
 }
 
 .project:hover .project-title {
@@ -888,7 +973,7 @@ body.light-theme .alpha-link:hover {
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 0 rgba(255, 255, 255, 0.7);
     }
     50% {
-        border-color: #cccccc;
+        border-color: #ffffff;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 20px 2px rgba(255, 255, 255, 0.5);
     }
 }
@@ -908,7 +993,7 @@ body.light-theme .alpha-link:hover {
 
 .project-meta {
     font-size: 1.2vw;
-    color: #999999;
+    color: #ffffff;
     font-weight: 300;
     letter-spacing: 0.03vw;
 }
@@ -929,7 +1014,7 @@ body.light-theme .alpha-link:hover {
 .info-text p {
     font-size: 16px;
     line-height: 1.8;
-    color: #cccccc;
+    color: #ffffff;
     margin-bottom: 20px;
     font-weight: 300;
 }
@@ -960,7 +1045,7 @@ body.light-theme .alpha-link:hover {
 .contact-intro {
     font-size: 1.5vw;
     font-weight: 300;
-    color: #999999;
+    color: #ffffff;
     text-align: right;
     width: 100%;
     max-width: 600px;
@@ -969,7 +1054,7 @@ body.light-theme .alpha-link:hover {
 }
 
 body.light-theme .contact-intro {
-    color: #666666;
+    color: #000000;
 }
 
 .contact-content {
@@ -991,7 +1076,7 @@ body.light-theme .contact-intro {
 
 .contact-item span:first-child {
     min-width: 80px;
-    color: #999999;
+    color: #ffffff;
     font-weight: 300;
     flex-shrink: 0;
 }
